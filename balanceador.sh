@@ -25,8 +25,8 @@ sudo a2enmod lbmethod_byrequests
 #Editamos el archivo 000-default.conf que está en el directorio /etc/apache2/sites-enabled
 cd /home/ubuntu
 rm -r balanceador/
-sudo git clone https://github.com/ElEmEnTzxc/balanceador.git
-cd /home/ubuntu/balanceador
+sudo git clone https://github.com/antoniobm1/practica5.git
+cd /home/ubuntu/practica5
 sudo cp 000-default.conf /etc/apache2/sites-enabled/
 
 
