@@ -27,7 +27,22 @@ sudo a2enmod lbmethod_byrequests
 
 #Configuracion del balanceador
 #Editamos el archivo 000-default.conf que está en el directorio /etc/apache2/sites-enabled , en el cual pondremos las ips de los 2 frontales, asi balanceara entre 1 frontal y otro.
+```
+<VirtualHost *:80>
+    # Dejamos la configuración del VirtualHost como estaba
+    # sólo hay que añadir las siguiente directivas: Proxy y ProxyPass
 
+    <Proxy balancer://mycluster>
+        # Server 1
+        BalancerMember http://IP-HTTP-SERVER-1
+
+        # Server 2
+        BalancerMember http://IP-HTTP-SERVER-2
+    </Proxy>
+
+    ProxyPass / balancer://mycluster/
+</VirtualHost>
+```
 
 
 #Reiniciamos el servidor apache
